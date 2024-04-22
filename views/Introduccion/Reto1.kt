@@ -4,31 +4,38 @@ package com.sergio.views.Introduccion
 class Reto1(val name: String) {
     var notifications: Int = 0
 
-    fun receiveNotifications(count: Int) {
+    fun count_Notifications(count: Int) {
         notifications += count
     }
 
-    fun getNotificationSummary(): String {
-        return when {
-            notifications == 0 -> "No hay mensajes disponibles"
-            notifications < 100 -> "$notifications notificaciones"
-            else -> "99+ notificaciones"
+    fun show_Notification(): String {
+
+        if (notifications == 0) {
+            return "No hay mensajes disponibles"
         }
+
+        if (notifications < 100) {
+            return "$notifications notificaciones"
+
+        } else {
+            return "99+ notificaciones"
+        }
+
     }
 }
 fun main() {
     val phones = mutableListOf<Reto1>()
 
 
-    val phone1 = Reto1("Iphone 1")
-    phone1.receiveNotifications(10)
+    val phone1 = Reto1("Iphone x")
+    phone1.count_Notifications(10)
     phones.add(phone1)
 
-    val phone_2 = Reto1("Iphone 2")
-    phone_2.receiveNotifications(30)
+    val phone_2 = Reto1("Iphone 11")
+    phone_2.count_Notifications(30)
     phones.add(phone_2)
-    // Mostrar el resumen de notificaciones para cada teléfono
+    // muestra las notificaciones recividas
     phones.forEach { phone ->
-        println("${phone.name} tiene ${phone.getNotificationSummary()}")
+        println("${phone.name} tiene ${phone.show_Notification()}")
     }
 }
