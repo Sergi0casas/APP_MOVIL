@@ -63,13 +63,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.NotificationCompat.TvExtender
 import com.sergio.views.R
+import loginScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
 
-            add_user()
+            loginScreen()
         }
         }
 
@@ -268,6 +269,9 @@ fun user_list(){
 @Preview
 @Composable
 fun Task_Details(){
+
+    Surface{
+
     LazyColumn( modifier = Modifier
         .fillMaxSize()
         .background(Color.Cyan)){
@@ -375,6 +379,7 @@ fun Task_Details(){
 
         }
 
+    }
     }
 }
 @Preview
